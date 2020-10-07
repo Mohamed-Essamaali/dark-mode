@@ -3,25 +3,26 @@ import {useLocalStorage} from './useLocalStorage'
 
 export function useDarkMode(key,initialValue){
 
-    const[darkMode,setDarkMode] = useLocalStorage(key,initialValue)
+    const[darkMode,toggleMode] = useLocalStorage(key,initialValue)
 
-     const toggleMode = e => {
-        e.preventDefault();
-        setDarkMode(!darkMode);
-        console.log('toggle clicked in useDarkMode', darkMode)
+    //  const toggleMode = e => {
+    //     e.preventDefault();
+    //     setDarkMode(!darkMode);
+    //     console.log('toggle clicked in useDarkMode', darkMode)
      
-    };
+    // };
     
-    let page = document.querySelector('body')
-    useEffect(()=>{
-        if(darkMode){
-            page.classList.add('dark-mode')
+    // let page = document.querySelector('body')
 
-        }else{
-            page.classList.remove('dark-mode')
-        }
+    // useEffect(()=>{
+    //     if(darkMode){
+    //         page.classList.add('dark-mode')
 
-    },[darkMode])
+    //     }else{
+    //         page.classList.remove('dark-mode')
+    //     }
+
+    // },[darkMode])
 
     return [darkMode,toggleMode]
 
